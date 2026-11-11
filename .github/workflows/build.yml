@@ -18,6 +18,9 @@ jobs:
           java-version: 17
 
       - uses: android-actions/setup-android@v3
+        with:
+          # The action's default list contains the obsolete 'tools' package and crashes.
+          packages: 'platform-tools platforms;android-34 build-tools;34.0.0'
 
       # Installs Gradle 8.7 on PATH, so no gradle-wrapper.jar is needed in the repo.
       - uses: gradle/actions/setup-gradle@v4
